@@ -9,6 +9,39 @@
   --muted: #34405a;
   --glow: #00d0ff;
   --radius: 18px;
+
+  --card-bg: #ffffff;
+  --card-border: #f2c675;
+  --card-rank-color: #b4c0da;
+  --card-highlight: #00386f;
+  --card-link-bg-start: #002d56;
+  --card-link-bg-end: #0a4f8a;
+  --card-link-color: #fef7e7;
+  --detail-card-bg-start: #fff4dc;
+  --detail-card-bg-end: #fffaf0;
+  --detail-card-color: #1b2028;
+  --detail-meta-color: #33425f;
+  --section-border: rgba(255, 255, 255, 0.65);
+}
+
+[data-theme="dark"] {
+  --panel: #1a2744;
+  --panel-2: #1e2f50;
+  --ink: #dce8ff;
+  --muted: #8fa3cc;
+
+  --card-bg: #1e2f50;
+  --card-border: #3a5080;
+  --card-rank-color: #4a6080;
+  --card-highlight: #7ec8e3;
+  --card-link-bg-start: #ff6a00;
+  --card-link-bg-end: #ff9640;
+  --card-link-color: #111111;
+  --detail-card-bg-start: #1e2f50;
+  --detail-card-bg-end: #1a2744;
+  --detail-card-color: #dce8ff;
+  --detail-meta-color: #8fa3cc;
+  --section-border: rgba(255, 255, 255, 0.12);
 }
 
 * {
@@ -134,7 +167,7 @@ h1 {
   padding: 1.4rem;
   margin: 1rem 0 1.2rem;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--section-border);
 }
 
 .section-head {
@@ -153,10 +186,10 @@ h2 {
 
 .card {
   grid-column: span 6;
-  background: #ffffff;
+  background: var(--card-bg);
   border-radius: calc(var(--radius) - 6px);
   padding: 1rem;
-  border: 2px solid #f2c675;
+  border: 2px solid var(--card-border);
   position: relative;
   overflow: hidden;
 }
@@ -168,7 +201,7 @@ h2 {
   right: 0.8rem;
   font-family: "Bebas Neue", Impact, sans-serif;
   font-size: 1.6rem;
-  color: #b4c0da;
+  color: var(--card-rank-color);
 }
 
 .card h3 {
@@ -187,15 +220,15 @@ h2 {
 .highlight {
   margin-bottom: 0;
   font-weight: 700;
-  color: #00386f;
+  color: var(--card-highlight);
 }
 
 .card-link {
   display: inline-block;
   margin-top: 0.8rem;
   text-decoration: none;
-  background: linear-gradient(115deg, #002d56, #0a4f8a);
-  color: #fef7e7;
+  background: linear-gradient(115deg, var(--card-link-bg-start), var(--card-link-bg-end));
+  color: var(--card-link-color);
   font-weight: 700;
   padding: 0.46rem 0.75rem;
   border-radius: 999px;
@@ -249,4 +282,32 @@ h2 {
   .card {
     grid-column: span 12;
   }
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.04);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
 }
