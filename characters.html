@@ -30,10 +30,10 @@
 
       .detail-card {
         grid-column: span 6;
-        background: linear-gradient(180deg, #fff4dc, #fffaf0);
-        color: #1b2028;
+        background: linear-gradient(180deg, var(--detail-card-bg-start), var(--detail-card-bg-end));
+        color: var(--detail-card-color);
         border-radius: 16px;
-        border: 2px solid #f2c675;
+        border: 2px solid var(--card-border);
         padding: 1rem;
         box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
       }
@@ -44,7 +44,7 @@
 
       .detail-meta {
         font-weight: 700;
-        color: #33425f;
+        color: var(--detail-meta-color);
         letter-spacing: 0.03em;
       }
 
@@ -64,6 +64,7 @@
           grid-column: span 12;
         }
       }
+    <script src="theme-init.js"></script>
     </style>
   </head>
   <body>
@@ -72,6 +73,8 @@
       <span class="shape shape-2"></span>
       <span class="shape shape-3"></span>
     </div>
+
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙 Dark</button>
 
     <header class="site-header reveal">
       <p class="eyebrow">Character Vault</p>
